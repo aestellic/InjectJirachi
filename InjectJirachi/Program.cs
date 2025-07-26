@@ -9,15 +9,16 @@ namespace InjectJirachi
     {
         static void Main(string[] args)
         {
-            if (args.Length < 1)
+            if (args.Length < 2)
             {
-                Console.WriteLine("Usage: InjectJirachi <save.sav>");
+                Console.WriteLine("Usage: InjectJirachi <Input.sav> <Output.sav>");
                 return;
             }
 
-            string savePath = args[0];
+            string inputSavePath = args[0];
+            string outputSavePath = args[0];
 
-            byte[] savData = File.ReadAllBytes(savePath);
+            byte[] savData = File.ReadAllBytes(inputSavePath);
 
             var sav = SaveUtil.GetVariantSAV(savData);
             if (sav is not SAV3 sav3)
@@ -62,7 +63,7 @@ namespace InjectJirachi
 
 
             byte[] newSave = sav3.Write();
-            File.WriteAllBytes("modified.sav", newSave);
+            File.WriteAllBytes($"{outputSavePath}", newSave);
 
             Console.WriteLine($"Injected into party slot {openSlot}. Saved as modified.sav");
         }
