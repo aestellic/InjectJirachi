@@ -1,5 +1,5 @@
 # InjectJirachi
-Injects a legal randomized Wishmaker Jirachi into any mainline Generation III Save File. Intended for shiny hunting a legal Wishmaker Jirachi using custom distribution hardware.
+Injects a legal randomized Wishmaker Jirachi into any mainline Generation III Save File. Intended for shiny hunting a legal Wishmaker Jirachi using custom distribution hardware (i.e. Raspberry Pi alongside GBxCart RW).
 
 ## Usage:
 `InjectJirachi <SaveFile.sav>`
