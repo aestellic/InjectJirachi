@@ -11,7 +11,7 @@ namespace InjectJirachi
         {
             if (args.Length < 2)
             {
-                Console.WriteLine("Usage: InjectJirachi <Input.sav> <Output.sav>");
+                Console.WriteLine("Usage: InjectJirachi <input.sav> <output.sav>");
                 return;
             }
 
