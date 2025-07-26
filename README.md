@@ -1,2 +1,5 @@
 # InjectJirachi
-Injects a Wishmaker Jirachi into any Gen 3 Save File
+Injects a legal randomized Wishmaker Jirachi into any mainline Generation III Save File
+
+## Usage:
+`InjectJirachi <SaveFile.sav>`
