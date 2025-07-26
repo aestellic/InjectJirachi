@@ -100,7 +100,7 @@ namespace GenJirachi {
             return jirachi;
         }
 
-        // PID is generated using reverse Method 1 (like Colosseum bonus disc)
+        // PID is generated using Reverse Method 1
         static uint GeneratePID(LCRNG rng)
         {
             ushort low = rng.Next();      // First RNG call → low 16 bits
@@ -109,7 +109,7 @@ namespace GenJirachi {
         }
 
 
-        // Standard Gen 3 LCRNG (BACD_R style)
+        // Standard Gen 3 LCRNG (BACD_R)
         class LCRNG
         {
             private uint seed;
