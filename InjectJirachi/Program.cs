@@ -65,7 +65,7 @@ namespace InjectJirachi
             byte[] newSave = sav3.Write();
             File.WriteAllBytes($"{outputSavePath}", newSave);
 
-            Console.WriteLine($"Injected into party slot {openSlot}. Saved as {outputSavePath}.sav");
+            Console.WriteLine($"Injected into party slot {openSlot}. Saved as {outputSavePath}");
         }
     }
 }
