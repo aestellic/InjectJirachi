@@ -12,7 +12,7 @@ namespace InjectJirachi
             if (args.Length < 2)
             {
                 Console.WriteLine("Usage: InjectJirachi <input.sav> <output.sav>");
-                return;
+                return 2;
             }
 
             string inputSavePath = args[0];
@@ -24,7 +24,7 @@ namespace InjectJirachi
             if (sav is not SAV3 sav3)
             {
                 Console.WriteLine("Not a Gen 3 save file.");
-                return;
+                return 2;
             }
 
             Console.WriteLine($"Game: {sav.Version}");
@@ -39,24 +39,24 @@ namespace InjectJirachi
             catch (Exception ex)
             {
                 Console.WriteLine($"Failed to parse generated Jirachi .pk3: {ex.Message}");
-                return;
+                return 2;
             }
 
             var party = sav3.PartyData;
 
             Console.WriteLine($"partySize: {party.Count}");
 
-            int maxPartySize = 6;
+            int maxPartySize = 5;
             int openSlot = -1;
 
-            if (party.Count < maxPartySize)
+            if (party.Count <= maxPartySize)
             {
                 openSlot = party.Count;  // next empty slot is at count index
             }
             else
             {
                 Console.WriteLine("No open party slot found.");
-                return;
+                return 1;
             }
 
             sav.SetPartySlotAtIndex(pk, openSlot);
@@ -65,7 +65,7 @@ namespace InjectJirachi
             byte[] newSave = sav3.Write();
             File.WriteAllBytes($"{outputSavePath}", newSave);
 
-            Console.WriteLine($"Injected into party slot {openSlot}. Saved as {outputSavePath}");
+            Console.WriteLine($"Injected into party slot {openSlot + 1}. Saved as {outputSavePath}");
         }
     }
 }
