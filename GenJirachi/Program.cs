@@ -54,7 +54,6 @@ namespace GenJirachi {
                 EXP = 156,
                 PID = pid,
                 Nature = (Nature)(pid % 25),
-
             };
 
             // Trainer Info
@@ -87,12 +86,17 @@ namespace GenJirachi {
             // Moves: Wish (273), Confusion (93), Rest (156)
             jirachi.Moves = Array.ConvertAll(new int[] { 273, 93, 156, 0 }, x => (ushort)x);
 
-            // Held Item = Ganlon (169) or Salac (170)
+            // Held Item: Ganlon (169) or Salac (170)
             jirachi.HeldItem = ((rng.Next() / 3) & 1) == 0 ? 170 : 169;
 
             // Nickname
             jirachi.IsNicknamed = false;
             jirachi.Nickname = "JIRACHI";
+
+            // Pokerus
+            jirachi.PokerusState = 0x0;
+            jirachi.PokerusDays = 0;
+            jirachi.PokerusStrain = 0;
 
             // Clean up
             jirachi.RefreshChecksum();
