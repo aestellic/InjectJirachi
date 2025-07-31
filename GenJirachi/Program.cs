@@ -68,7 +68,7 @@ namespace GenJirachi {
             jirachi.FatefulEncounter = false;
             jirachi.MetLocation = 0xFFFF;
             jirachi.MetLevel = 5;
-            jirachi.Ball = 0;
+            jirachi.Ball = 4;
 
             // Friendship
             jirachi.OriginalTrainerFriendship = 100;
