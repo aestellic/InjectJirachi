@@ -31,6 +31,7 @@ namespace GenJirachi {
             Console.WriteLine($"SID     : {jirachi.SID16}");
             Console.WriteLine($"Nature  : {jirachi.Nature}");
             Console.WriteLine($"Shiny   : {(jirachi.IsShiny ? "Yes" : "No")}");
+            Console.WriteLine($"Ball    : {jirachi.Ball}");
             Console.WriteLine("IVs     :");
             Console.WriteLine($"  HP     : {jirachi.IV_HP}");
             Console.WriteLine($"  Atk    : {jirachi.IV_ATK}");
@@ -101,7 +102,6 @@ namespace GenJirachi {
 
             // Clean up
             jirachi.RefreshChecksum();
-
             return jirachi;
         }
 
