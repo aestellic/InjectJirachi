@@ -68,6 +68,7 @@ namespace GenJirachi {
             jirachi.FatefulEncounter = false;
             jirachi.MetLocation = 0xFFFF;
             jirachi.MetLevel = 5;
+            jirachi.Ball = 0;
 
             // Friendship
             jirachi.OriginalTrainerFriendship = 100;
@@ -113,7 +114,7 @@ namespace GenJirachi {
         }
 
 
-        // Standard Gen 3 LCRNG (BACD_R)
+        // Gen 3 LCRNG (BACD_R)
         class LCRNG
         {
             private uint seed;
