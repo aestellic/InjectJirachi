@@ -23,7 +23,7 @@ namespace GenJirachi {
             var jirachi = CreateWishmakerJirachi(seed);
 
             byte[] data = jirachi.EncryptedPartyData;
-            File.WriteAllBytes("wishmaker_jirachi.pk3", data);
+            File.WriteAllBytes("wishmaker_jirachi.ek3", data);
 
             Console.WriteLine("Wishmaker Jirachi generated!\n");
             Console.WriteLine($"PID     : 0x{jirachi.PID:X8}");
@@ -39,7 +39,7 @@ namespace GenJirachi {
             Console.WriteLine($"  SpA    : {jirachi.IV_SPA}");
             Console.WriteLine($"  SpD    : {jirachi.IV_SPD}");
             Console.WriteLine($"  Spe    : {jirachi.IV_SPE}");
-            Console.WriteLine("\nSaved as wishmaker_jirachi.pk3");
+            Console.WriteLine("\nSaved as wishmaker_jirachi.ek3");
         }
 
 
@@ -68,6 +68,8 @@ namespace GenJirachi {
 
             PK3 jirachi = encounter.ConvertToPKM(trainer);
 
+            // Friendship
+            jirachi.OriginalTrainerFriendship = 100;
 
             var rng = new LCRNG(seed);
 
@@ -93,7 +95,7 @@ namespace GenJirachi {
             jirachi.HeldItem = ((rng.Next() / 3) & 1) == 0 ? 170 : 169;
 
             // Clean up
-            jirachi.ResetPartyStats(); // adds extra party bytes
+            jirachi.ResetPartyStats(); // updates party bytes
             jirachi.RefreshChecksum();
             return jirachi;
         }
